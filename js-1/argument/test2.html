@@ -38,6 +38,7 @@
     $("#validate").bind("click", validate);
 
 	$.each([1,2,3], function(idx, item) {
-		console.log()
-	})
+		// console.log('%s : %s', idx, item);
+		console.log('%s : %s', arguments[0], arguments[1]);
+	});
 </script>
