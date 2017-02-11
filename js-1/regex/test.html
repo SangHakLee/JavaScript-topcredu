@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" name="" id="email" value="a@b.com">
+    <button type="button" name="button" id="validate">validate</button>
+    <div id="result">
+
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    function validate() {
+        $("#result").text("");
+        var email = $("#email").val();
+        if (validateEmail(email)) {
+            $("#result").text(email + " is valid :)");
+            $("#result").css("color", "green");
+        } else {
+            $("#result").text(email + " is not valid :(");
+            $("#result").css("color", "red");
+        }
+        return false;
+    }
+
+    $("#validate").bind("click", validate);
+</script>
