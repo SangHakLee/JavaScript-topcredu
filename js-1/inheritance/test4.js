@@ -56,8 +56,26 @@ g.print(); // 여기의 print 는 Gildong의 print이다. Korean까지 찾아갈
 
 
 Gildong.prototype.printValue = function() {
+	// this : 호출자
+	// 함수를 소유해서 호출한 자
+
 	// JS의 this 는 가변적. 호출자
 	// 호출자 : g   this.b 는 g.b
 	console.log('value b : ', this.b );
+
+	// 호풀자 : g   g.a 는 g.prototype 에 있는 a 사용    부모 Korean의 a
+	console.log('value a : ', this.a );
 }
 g.printValue(); // 함수 호출
+
+
+
+var o = new Object();
+console.log(o); // {}  빈 객체로 보이지만
+/* 사실은
+{__proto__: Object.prototype}  히든 객첵가 있다.
+그래서 아래와 같이 o.toString() 이 가능하다
+ */
+console.log( o.toString() );
+// console.log( Object.getOwnPropertyNames() ); // Error
+console.log( Object.getOwnPropertyNames(Object.prototype) ); // 여기서 toString() 확인
